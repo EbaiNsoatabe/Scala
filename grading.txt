@@ -1,0 +1,91 @@
+class exams{
+	private var physics = 0
+	private var chemistry = 0
+	private var mathematics = 0
+	private var total:Int = 0
+	private var percent = 0
+	private var problem = 0
+	private var fail = 0
+	def phy(a:Int)={
+		if (a >= 0 && a <= 150){
+			physics = a
+			if (a < 90){
+				println("You have failed physics")
+				fail += 1
+			}
+		}
+		else{
+			println("Invalid phyics mark")
+			problem += 1 
+		}
+	}
+	def chem(a:Int)={
+		if (a >= 0 && a <= 150){
+			chemistry = a
+			if (a < 90){
+				println("You have failed chemistry")
+				fail += 1
+			}
+		}
+		else{
+			println("Invalid chemistry mark")
+			problem += 1
+		}
+	}
+	def maths(a:Int)={
+		if (a >= 0 && a <= 150){
+			mathematics = a
+			if (a < 90){
+				println("You have failed maths")
+				fail += 1
+			}
+		}
+		else{
+			println("Invalid maths mark")
+			problem += 1
+		}
+	}
+	private def calculation()={
+		total = physics + chemistry + mathematics
+		percent = (total*100)/450
+	}
+	def results()={
+		calculation()
+		if (problem >= 1){
+			println("Error with entry")
+		}
+		else{
+			if (fail == 0){
+				println("Total marks: " + total)
+				println("Percentage: " + percent)
+				if(percent < 70){
+					println("Grade: C")
+				}
+				else if(percent < 80){
+					println("Grade: B")
+				}
+				else if(percent < 90){
+					println("Grade: A")
+				}
+				else{
+					println("Grade: A+")
+				}
+			}
+			else if (fail == 1){
+				println("Resit the exam")
+			}
+			else if (fail == 2){
+				println("Retake the course")
+			}
+			else{
+				println("Go home")
+			}
+		}
+	}
+}
+
+var ebai = new exams()
+ebai.chem(9)
+ebai.phy(108)
+ebai.maths(108)
+ebai.results
