@@ -6,8 +6,8 @@ class palindrome{
 		var length = a.length
 		var first = a.substring(0, length/2)
 		var second = a.substring((length/2) + 1, a.length)
-		if(first == second.reverse){
-		println(a + " is a palindrome")
+		if((first == second.reverse) && (a != " ")){
+			println(a + " is a palindrome")
 		}
 		else{
 			println(a + " is not a palindrome")
@@ -18,7 +18,7 @@ class palindrome{
 		var length = a.length
 		var first = a.substring(0, length/2)
 		var second = a.substring((length/2), a.length)
-		if(first == second.reverse){
+		if((first == second.reverse) && (a != " ")){
 			println(a + " is a palindrome")
 		}
 		else{
@@ -29,9 +29,13 @@ class palindrome{
 
 var ref = new palindrome()
 
-if(word.length % 2 != 0){
-	ref.oddpalindrome(word)
+def check(c:String){
+	if(c.length % 2 != 0){
+		ref.oddpalindrome(c)
+	}
+	else{
+		ref.evenpalindrome(c)
+	}
 }
-else{
-	ref.evenpalindrome(word)
-}
+
+check(word)
